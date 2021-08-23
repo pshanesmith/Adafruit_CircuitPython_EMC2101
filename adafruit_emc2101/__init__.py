@@ -216,7 +216,7 @@ class EMC2101:  # pylint: disable=too-many-instance-attributes
     _spin_time = RWBits(3, _FAN_SPINUP, 0)
     _spin_tach_limit = RWBit(_FAN_SPINUP, 5)
 
-    def __init__(self, i2c_bus):
+    def __init__(self, i2c_bus, i2c_addr=_I2C_ADDR):
         self.i2c_device = i2cdevice.I2CDevice(i2c_bus, _I2C_ADDR)
 
         if not self._part_id in [0x16, 0x28] or self._mfg_id != 0x5D:
